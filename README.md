@@ -1,52 +1,65 @@
-# Analise_Campeonato_Brasileiro_2024_v2
+# ⚽ Brasileirão 2024 — Dashboard de Inteligência Esportiva & Gestão de Elenco
 
-# 📊 Power BI - Dynamic HTML/CSS Sidebar Navigation Dashboard
-
-[![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
-[![DAX](https://img.shields.io/badge/DAX-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://docs.microsoft.com/en-us/dax/)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C94C?style=for-the-badge&logo=powerbi&logoColor=black)
+![Power Query](https://img.shields.io/badge/Power_Query-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+![Linguagem M](https://img.shields.io/badge/Linguagem_M-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Concluído-brightgreen?style=for-the-badge)
 
 ## 📌 Sobre o Projeto
 
-Este projeto apresenta um relatório interativo desenvolvido no **Power BI**, utilizando uma abordagem avançada para **UI/UX Design de Relatórios**. Foi criada uma barra de navegação lateral (menu sidebar) customizada com **HTML e CSS via DAX**, oferecendo uma experiência de navegação fluida, moderna e reativa, semelhante à de uma aplicação web.
+Este projeto consiste em um dashboard executivo desenvolvido no **Power BI** para análise tática, financeira e de desempenho do **Campeonato Brasileiro Série A 2024**. 
+
+O objetivo principal é transformar dados brutos de jogadores, clubes e estatísticas em uma solução *Data-Driven* de alta performance, permitindo que gestores do futebol avaliem a utilização do elenco, o retorno sobre investimento (ROI), o risco financeiro de lesões e o perfil etário das equipes.
+
+> 🔄 **Evolução do Projeto:** Este repositório traz uma **releitura completa** de uma versão anterior criada há um ano. A nova solução apresenta um grande salto em engenharia de dados (ETL), consistência visual (UI/UX) em *Dark Theme* e profundidade nas métricas esportivas.
+
+link do projeto anterior - https://github.com/bruno0508-boop/Analise-do-Campeonato-Brasileiro-Serie-A-2024
 
 ---
 
-## 🚀 Funcionalidades Principais
+## 🖼️ Módulos & Páginas do Dashboard
 
-- **Menu Lateral Dinâmico (Sidebar):** Renderizado via código HTML/CSS incorporado em medidas DAX no visual customizado de HTML Content.
-- **Indicação da Página Ativa:** Lógica DAX que identifica automaticamente a página selecionada e destaca visualmente a aba correspondente na sidebar.
-- **Microinterações e Animações:** Efeitos de *hover*, transições de borda e alteração de opacidade dos ícones utilizando CSS puro.
-- **Otimização de Ícones:** Utilização de *Data URIs* / SVG vetorizado para manter o relatório leve e responsivo sem dependência de fontes externas.
+O dashboard possui navegação lateral customizada dividida em 6 visões estratégicas:
 
----
-
-## 🛠️ Tecnologias e Ferramentas Utilizadas
-
-- **Power BI Desktop:** Modelagem de dados, criação de visuais e publicação do relatório.
-- **DAX (Data Analysis Expressions):** Lógica condicional (`SELECTEDVALUE`, `COALESCE`) e montagem dinâmica de strings HTML/CSS.
-- **HTML5 & CSS3:** Estruturação da barra lateral e estilização completa (flexbox, transições, estados `:hover` e `.active`).
+1. 💼 **Visão Geral & Mercado:** Análise da folha salarial mensal/anual, valuation dos elencos e ranking de jogadores mais valiosos.
+2. 🌳 **Árvore de Análise:** Decomposição hierárquica (Árvore de Decomposição) dos atletas por região, clube, nacionalidade e empresários.
+3. 🔬 **Raio-X Elenco:** Mapeamento do perfil dos atletas e grupo econômico.
+4. 📈 **Gestão de Risco & ROI Esportivo:** Relação Salário vs. Valor de Mercado, ROI dos elencos e impacto financeiro de lesões no Departamento Médico (DM).
+5. ⚽ **Resumo da Temporada & Performance:** Aproveitamento dentro/fora de casa, arrecadação de bilheteria e rankings de artilheiros, assistências e desarmes.
+6. 📋 **Gestão de Elenco:** Distribuição de minutagem por posição tática e perfil etário dos atletas.
 
 ---
 
-## 💻 Estrutura da Medida DAX (Menu Lateral)
+## 🛠️ Tecnologias & Etapas de Engenharia de Dados
 
-```dax
-Menu_HTML = 
-VAR PageAtiva = COALESCE(SELECTEDVALUE(dPaginas[ID_Pagina]), 1)
-VAR Icone_Negocios = "data:image/png;base64,..."
+### 1. Tratamento e Transformação de Dados (Power Query / Linguagem M)
+* **Padronização Tática:** Tradução em lote de siglas em inglês para os nomes por extenso em português via `List.Accumulate` (ex: `CB` → `Zagueiro`, `GK` → `Goleiro`, `DM` → `Volante`).
+* **Categorização de Idades:** Construção de lógica condicional dinâmica para segmentar os atletas em faixas etárias:
+  * **Até 22 anos:** `Jovem Promessa`
+  * **23 a 26 anos:** `Em Afirmação`
+  * **27 a 32 anos:** `Auge Profissional`
+  * **Acima de 32 anos:** `Veterano`
+* **Limpeza e Higienização:** Correção de valores nulos/ausentes e unificação de métricas de tempo de jogo e partidas.
 
-RETURN
-"
-<style>
-    .sidebar { background: #2D3547; width: 70px; display: flex; flex-direction: column; }
-    .menu-item.active { border-color: #D06A84; background: #3d4961; }
-</style>
+### 2. Design e UI/UX
+* **Tema Escuro (Dark Theme):** Paleta de cores personalizada baseada na identidade visual do campeonato.
+* **Layout Modular:** Estruturação em cartões e blocos reutilizáveis.
+* **Componentes Dinâmicos:** Filtros globais de região, clube, posição e faixa etária em todas as visões.
 
-<div class='sidebar'>
-    <div class='menu-item " & IF(PageAtiva = 1, "active", "") & "' title='Visão Geral'>
-        <img src='" & Icone_Negocios & "' />
-    </div>
-</div>
-"
+---
+
+## 📊 Principais Insights do Projeto
+
+* **Impacto das Lesões:** Acomodação do custo salarial parado no Departamento Médico (DM), demonstrando clubes que tiveram alto prejuízo individual por lesões.
+* **Maturação vs. Minutagem:** A posição de Zagueiro e Volante concentrou a maior minutagem em atletas no *Auge Profissional* e *Veteranos*, enquanto posições de ponta tiveram maior participação de *Jovens Promessas*.
+* **Eficiência Financeira:** Mapeamento da relação entre a folha salarial comprometida e a minutagem efetiva dentro de campo.
+
+---
+
+## 📂 Estrutura do Repositório
+
+```text
+├── 📁 dados/                  # Ficheiros e bases tratadas (.xlsx / .csv)
+├── 📁 imagens/                # Screenshots do dashboard e wireframes
+├── 📄 Script_PowerQuery.m     # Script M completo utilizado no ETL
+└── 📄 README.md               # Documentação do projeto
