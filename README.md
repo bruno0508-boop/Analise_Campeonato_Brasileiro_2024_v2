@@ -13,8 +13,6 @@ O objetivo principal é transformar dados brutos de jogadores, clubes e estatís
 
 > 🔄 **Evolução do Projeto:** Este repositório traz uma **releitura completa** de uma versão anterior criada há um ano. A nova solução apresenta um grande salto em engenharia de dados (ETL), consistência visual (UI/UX) em *Dark Theme* e profundidade nas métricas esportivas.
 
-link do projeto anterior - https://github.com/bruno0508-boop/Analise-do-Campeonato-Brasileiro-Serie-A-2024
-
 ---
 
 ## 🖼️ Módulos & Páginas do Dashboard
@@ -22,11 +20,22 @@ link do projeto anterior - https://github.com/bruno0508-boop/Analise-do-Campeona
 O dashboard possui navegação lateral customizada dividida em 6 visões estratégicas:
 
 1. 💼 **Visão Geral & Mercado:** Análise da folha salarial mensal/anual, valuation dos elencos e ranking de jogadores mais valiosos.
+   ![Visão Geral & Mercado](imagem/Visão%20Geral%20%26%20Mercado.JPG)
+
 2. 🌳 **Árvore de Análise:** Decomposição hierárquica (Árvore de Decomposição) dos atletas por região, clube, nacionalidade e empresários.
+   ![Árvore de Análise](imagem/Árvore%20de%20Análise.JPG)
+
 3. 🔬 **Raio-X Elenco:** Mapeamento do perfil dos atletas e grupo econômico.
+   ![Raio-X Elenco](imagem/Raio-X%20Elenco.JPG)
+
 4. 📈 **Gestão de Risco & ROI Esportivo:** Relação Salário vs. Valor de Mercado, ROI dos elencos e impacto financeiro de lesões no Departamento Médico (DM).
+   ![Gestão de Risco & ROI Esportivo](imagem/Gestão%20de%20Risco%20%26%20ROI%20Esportivo.JPG)
+
 5. ⚽ **Resumo da Temporada & Performance:** Aproveitamento dentro/fora de casa, arrecadação de bilheteria e rankings de artilheiros, assistências e desarmes.
+   ![Resumo da Temporada & Performance](imagem/Resumo%20da%20Temporada%20%26%20Performance.JPG)
+
 6. 📋 **Gestão de Elenco:** Distribuição de minutagem por posição tática e perfil etário dos atletas.
+   ![Gestão de Elenco](imagem/Gestão%20de%20Elenco.JPG)
 
 ---
 
